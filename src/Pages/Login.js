@@ -21,16 +21,16 @@ export default function Login({ navigation }) {
 
     await AsyncStorage.setItem('user', _id);
 
-    navigation.navigate('Main', { _id });
+    navigation.navigate('Main', { user: _id });
   }
 
   React.useEffect(() => {
     AsyncStorage.getItem('user').then(hasUser => {
       if (hasUser) {
-        navigation.navigate('Main', { hasUser });
+        navigation.navigate('Main', { user: hasUser });
       }
     });
-  }, [navigation]);
+  }, []);
 
   return (
     <KeyboardAvoidingView
